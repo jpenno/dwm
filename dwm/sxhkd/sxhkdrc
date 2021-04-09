@@ -1,0 +1,219 @@
+#################################################################
+# KEYBOARD BINDINGS FOR ANY TWM
+#################################################################
+
+#################################################################
+# SUPER + FUNCTION KEYS
+#################################################################
+
+#Vlc
+super + F6
+    vlc --video-on-top
+
+#Thunar
+super + F8
+    thunar
+
+#Evolution
+super + F9
+    evolution
+
+#Spotify
+super + F10
+    spotify
+
+#Rofi Fullscreen
+super + F11
+    rofi -show run -fullscreen
+
+#Rofi
+super + F12
+    rofi -show run
+
+#################################################################
+# SUPER + ... KEYS
+#################################################################
+
+#Code
+super + e
+    code
+
+#Browser
+super + w
+    firefox
+
+#Htop
+#super + h
+#    urxvt 'htop task manager' -e htop
+
+#arcolinux-logout
+super + x
+    arcolinux-logout
+
+#Termite
+super + Return
+    st
+
+#Xkill
+super + Escape
+    xkill
+
+#Keyboard dependent
+#termite
+super + KP_Enter
+	termite
+
+#################################################################
+# SUPER + SHIFT KEYS
+#################################################################
+
+#File-Manager
+super + shift + Return
+	thunar
+
+#Keyboard dependent
+#File-Manager
+#super + shift + KP_Enter
+#	thunar
+
+#dmenu
+super + shift + d
+	dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+
+#reload sxhkd:
+super + shift + s
+	pkill -USR1 -x sxhkd
+
+#Keyboard dependent
+#super + shift + KP_Enter
+#	thunar
+
+
+#################################################################
+# CONTROL + ALT KEYS
+#################################################################
+
+#arcolinux-welcome-app
+ctrl + alt + w
+     arcolinux-welcome-app
+
+#arcolinux-tweak-tool
+ctrl + alt + e
+    arcolinux-tweak-tool
+
+#Nitrogen
+ctrl + alt + i
+     nitrogen
+
+#arcolinux-logout
+ctrl + alt + k
+     arcolinux-logout
+
+#arcolinux-logout
+ctrl + alt + l
+    arcolinux-logout
+
+#Pulse Audio Control
+ctrl + alt + u
+     pavucontrol
+
+#Keyboard dependent
+#termite
+#ctrl + alt + KP_Enter
+#     termite
+
+
+#################################################################
+# ALT + ... KEYS
+#################################################################
+
+#Gmrun
+alt + F2
+    gmrun
+
+
+#################################################################
+# CONTROL + SHIFT KEYS
+#################################################################
+
+#Xcfe4-TaskManager
+ctrl + shift + Escape
+    xfce4-taskmanager
+ctrl + shift + r
+	RuneLite.AppImage
+
+#################################################################
+#     SCREENSHOTS
+#################################################################
+
+#Scrot
+Print
+    scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
+
+#screeenshooter
+ctrl + Print
+     xfce4-screenshooter
+
+#Gnome-Screenshot
+ctrl + shift + Print
+     gnome-screenshot -i
+
+
+#################################################################
+#     FUNCTION KEYS
+#################################################################
+
+#xfce4-terminal dropdown
+F12
+    xfce4-terminal --drop-down
+
+
+#################################################################
+#     MULTIMEDIA KEYS
+#################################################################
+
+#Raises volume
+XF86AudioRaiseVolume
+    amixer set Master 1%+
+
+#Lowers volume
+XF86AudioLowerVolume
+    amixer set Master 1%-
+
+#Mute
+XF86AudioMute
+    amixer -D pulse set Master 1+ toggle
+
+#Playerctl works for Pragha, Spotify and others
+#Delete the line for playerctl if you want to use mpc
+#and replace it with the corresponding code
+#mpc works for e.g.ncmpcpp
+#mpc toggle
+#mpc next
+#mpc prev
+#mpc stop
+
+#PLAY
+XF86AudioPlay
+    playerctl play-pause
+
+#Next
+XF86AudioNext
+    playerctl next
+
+#previous
+XF86AudioPrev
+    playerctl previous
+
+#Stop
+XF86AudioStop
+    playerctl stop
+
+#Brightness up
+XF86MonBrightnessUp
+    xbacklight -inc 10
+
+#Brightness down
+XF86MonBrightnessDown
+    xbacklight -dec 10
+
