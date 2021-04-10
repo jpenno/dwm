@@ -6,6 +6,7 @@ static const Block blocks[] = {
 	// {"", "date '+%b %d (%a) %I:%M%p'",					5,		0},
 	{"", "date '+%I:%M | %d/%m|'",					60,		0},
 };
+
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.
 static char delim[] = " | ";
 static unsigned int delimLen = 5;
