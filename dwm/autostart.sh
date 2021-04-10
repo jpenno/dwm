@@ -27,10 +27,11 @@ run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 picom -b  --config ~/.config/dwm/dwm/picom.conf &
 run "numlockx on"
 run "volumeicon"
-run slstatus &
+#run slstatus &
+run dwmblocks &
 sxhkd -c ~/.config/dwm/dwm/sxhkd/sxhkdrc &
 #run "nitrogen --restore"
-run "conky -c $HOME/.config/dwm/dwm/system-overview"
+#run "conky -c $HOME/.config/dwm/dwm/system-overview"
 #you can set wallpapers in themes as well
 #feh --bg-fill /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg &
 feh --bg-fill -z ~/BackGrounds & 
@@ -44,7 +45,7 @@ feh --bg-fill -z ~/BackGrounds &
 
 
 # My bar config
-xsetroot -name "$(date)"
+#xsetroot -name "$(date)"
 
 
 
