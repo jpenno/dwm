@@ -33,9 +33,10 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
+static const char *tags[] = {"一","二","三","四","五","六","七","八","九","十"};
 /* static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; */
 /* static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" }; */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+/* static const char *tags[] = { "", "", "", "", "", "", "", "", "" }; */
 /* static const char *tags[] = { "Web", "Chat", "Edit", "Meld", "Vb", "Mail", "Video", "Image", "Files" }; */
 
 
@@ -45,12 +46,12 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 *  use tags mask to point an application to a specific workspace
 	 */
-	/* class                       instance    title      tags mask      isfloating   monitor */
-	{ "Gimp",                      NULL,       NULL,       0,            0,           -1 },
-	{ "Xfce4-terminal",            NULL,       NULL,       0,            1,           -1 },
-	{ "firefox",                   NULL,       NULL,       0,            0,           -1 },
-	{ "brave",                   NULL,       NULL,       0,            0,           -1 },
-	{ "Arcolinux-welcome-app.py",  NULL,       NULL,       0,            1,           -1 },
+	/* class                         instance    title      tags mask      isfloating   monitor */
+	{ "Gimp",                         NULL,       NULL,       0,            0,           -1 },
+	{ "Xfce4-terminal",               NULL,       NULL,       0,            1,           -1 },
+	{ "firefox",                      NULL,       NULL,       0,            0,           -1 },
+	{ "brave",                        NULL,       NULL,       0,            0,           -1 },
+	{ "Arcolinux-welcome-app.py",     NULL,       NULL,       0,            1,           -1 },
 	{ "Arcolinux-calamares-tool.py",  NULL,       NULL,       0,            1,           -1 },	
 };
 
@@ -97,8 +98,8 @@ static const char *taskmanager[]  = { "xfce4-taskmanager", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = filecmd } },
+	/* { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } }, */
+	/* { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = filecmd } }, */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
@@ -115,13 +116,13 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 	/*{ MODKEY,                       XK_Return, zoom,           {0} },*/
 	/*{ MODKEY,                       XK_Tab,    view,           {0} },*/
-	{ MODKEY|ShiftMask,				      XK_q,      killclient,     {0} },
-	{ MODKEY,						            XK_q,      killclient,     {0} },
+	{ MODKEY|ShiftMask,				XK_q,      killclient,     {0} },
+	{ MODKEY,						XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY|ControlMask,			      XK_comma,  cyclelayout,    {.i = -1 } },
+	{ MODKEY|ControlMask,			XK_comma,  cyclelayout,    {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
 	{ MODKEY,                       XK_space,  cyclelayout,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
@@ -136,17 +137,13 @@ static Key keys[] = {
 	{ Mod1Mask|ControlMask,         XK_Left,   shiftview,      {.i = -1 } },
 	{ Mod1Mask|ControlMask,         XK_Up,     shiftview,      {.i =  1 } },
 	{ Mod1Mask|ControlMask,         XK_Down,   shiftview,      {.i = -1 } },	
-	{ Mod1Mask,						          XK_Tab,    shiftview,      {.i =  1 } },
-	{ Mod1Mask|ShiftMask,	          XK_Tab,	   shiftview,	   {.i = -1 } },
-	{ MODKEY,		        		        XK_Tab,    shiftview,	   {.i =  1 } },
-	{ MODKEY|ShiftMask,		          XK_Tab,	   shiftview,	   {.i = -1 } },
-	{ MODKEY,			                  XK_minus,	 spawn,		SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY|ShiftMask,		          XK_minus,	spawn,		SHCMD("pamixer --allow-boost -d 15; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY,			                  XK_equal,	spawn,		SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY|ShiftMask,		          XK_equal,	spawn,		SHCMD("pamixer --allow-boost -i 15; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioMute,		    spawn,		SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("pamixer --allow-boost -i 1; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("pamixer --allow-boost -d 1; kill -44 $(pidof dwmblocks)") },
+	{ Mod1Mask,					    XK_Tab,    shiftview,      {.i =  1 } },
+	{ Mod1Mask|ShiftMask,	        XK_Tab,	   shiftview,	   {.i = -1 } },
+	{ MODKEY,		        		XK_Tab,    shiftview,	   {.i =  1 } },
+	{ MODKEY|ShiftMask,		        XK_Tab,	   shiftview,	   {.i = -1 } },
+	/* { 0, XF86XK_AudioMute,		    spawn,		SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") }, */
+	/* { 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("pamixer --allow-boost -i 1; kill -44 $(pidof dwmblocks)") }, */
+	/* { 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("pamixer --allow-boost -d 1; kill -44 $(pidof dwmblocks)") }, */
 
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)

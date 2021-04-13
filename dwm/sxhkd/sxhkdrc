@@ -5,6 +5,10 @@
 #################################################################
 # SUPER + FUNCTION KEYS
 #################################################################
+#RuneLite
+super + r
+    RuneLite-aarch64.AppImage
+
 
 #Vlc
 super + F6
@@ -40,7 +44,7 @@ super + e
 
 #Browser
 super + w
-    firefox
+    brave
 
 #Htop
 #super + h
@@ -69,7 +73,7 @@ super + KP_Enter
 
 #File-Manager
 super + shift + Return
-	thunar
+	pcmanfm
 
 #Keyboard dependent
 #File-Manager
@@ -78,7 +82,9 @@ super + shift + Return
 
 #dmenu
 super + shift + d
-	dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+	dmenu_run -i -nb '#222222' -nf '#bbbbbb' -sb '#6790EB' -sf '#eeeeee' -fn 'fira code:pixelsize=24'
+super + p
+	dmenu_run -i -nb '#222222' -nf '#bbbbbb' -sb '#6790EB' -sf '#eeeeee' -fn 'fira code:pixelsize=24'
 
 #reload sxhkd:
 super + shift + s
@@ -173,7 +179,15 @@ F12
 #################################################################
 #Mute
 XF86AudioMute
-    amixer -D pulse set Master 1+ toggle
+	pamixer -t; kill -44 $(pidof dwmblocks)
+
+XF86AudioRaiseVolume
+	pamixer --allow-boost -i 1; kill -44 $(pidof dwmblocks)
+
+#Lowers volume
+XF86AudioLowerVolume
+	pamixer --allow-boost -d 1; kill -44 $(pidof dwmblocks)
+
 
 #Playerctl works for Pragha, Spotify and others
 #Delete the line for playerctl if you want to use mpc
@@ -183,7 +197,7 @@ XF86AudioMute
 #mpc next
 #mpc prev
 #mpc stop
-
+#Raises volume
 #PLAY
 XF86AudioPlay
     playerctl play-pause
