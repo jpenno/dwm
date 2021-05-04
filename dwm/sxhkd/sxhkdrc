@@ -9,6 +9,13 @@
 super + r
     RuneLite-aarch64.AppImage
 
+#To Do list
+super + shift+ p
+	alacritty -e nvim /home/jp/Documents/planing/ToDoList.wiki
+
+#DWM config
+super + c ; d
+	alacritty -e nvim /home/jp/.config/dwm/dwm/config.h
 
 #Vlc
 super + F6
@@ -46,6 +53,9 @@ super + e
 super + w
     brave
 
+super + shift + w
+    qutebrowser
+
 #Htop
 #super + h
 #    urxvt 'htop task manager' -e htop
@@ -56,7 +66,7 @@ super + x
 
 #Termite
 super + Return
-    st
+    alacritty
 
 #Xkill
 super + Escape
@@ -70,6 +80,10 @@ super + KP_Enter
 #################################################################
 # SUPER + SHIFT KEYS
 #################################################################
+
+#Steam
+super + shift + g
+	steam
 
 #File-Manager
 super + shift + Return
