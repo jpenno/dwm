@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# #toggle input
+# ibus="$(ibus engine)"
+# engstr="xkb:au::eng"
+# jpstr="anthy"
+# if [ "$ibus" = "$engstr" ]; then
+#     ibus engine anthy
+# fi
+# if [ "$ibus" = "$jpstr" ]; then
+#     ibus engine xkb:au::eng
+# fi
+
+#displa input
+ibus="$(ibus engine)"
+engstr="xkb:au::eng"
+if [ "$ibus" = "$engstr" ]; then
+	output="ENG"
+# elif [ "$ibus" -e "30" ]; then
+# 	output="jp"
+else
+	output="日本語"
+fi
+echo "$output"

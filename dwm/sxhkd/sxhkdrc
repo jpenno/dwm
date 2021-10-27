@@ -44,9 +44,12 @@ super + F12
 #################################################################
 # SUPER + ... KEYS
 #################################################################
-
 #Code
 super + e
+    emacs
+
+#Code
+super + shift + e
     code
 
 #Browser
@@ -201,6 +204,11 @@ XF86AudioRaiseVolume
 #Lowers volume
 XF86AudioLowerVolume
 	pamixer --allow-boost -d 1; kill -44 $(pidof dwmblocks)
+
+#testing dwmblocks
+super + o 
+    toggle-ibus; kill -45 $(pidof dwmblocks)
+
 
 
 #Playerctl works for Pragha, Spotify and others
