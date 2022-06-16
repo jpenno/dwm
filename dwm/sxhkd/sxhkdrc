@@ -65,7 +65,7 @@ super + shift + w
 
 #arcolinux-logout
 super + x
-    arcolinux-logout
+    archlinux-logout
 
 #Termite
 super + Return
