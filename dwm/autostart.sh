@@ -37,7 +37,7 @@ sxhkd -c ~/.config/dwm/dwm/sxhkd/sxhkdrc &
 #run "conky -c $HOME/.config/dwm/dwm/system-overview"
 #you can set wallpapers in themes as well
 #feh --bg-fill /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg &
-feh --bg-fill -z ~/BackGrounds & 
+feh --bg-fill -z ~/.confit/dwm/BackGrounds/
 #run applications from startup
 
 #run "insync start"
