@@ -40,6 +40,9 @@ sxhkd -c ~/.config/dwm/dwm/sxhkd/sxhkdrc &
 feh --bg-fill -z ~/.config/dwm/Backgrounds/
 #run applications from startup
 
+# auto start ibus for jp input
+ibus-daemon -drxR
+
 #run "insync start"
 #run "spotify"
 #run "ckb-next -b"
