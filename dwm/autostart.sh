@@ -15,11 +15,11 @@ function run {
 #run xrandr --output DVI-1 --right-of DVI-0 --auto
 #run xrandr --output DVI-D-1 --right-of DVI-I-1 --auto
 #run xrandr --output HDMI2 --right-of HDMI1 --auto
-xrandr --output DP-0 --primary --mode 1920x1080 --rate 144.00 --output DVI-D-0 --mode 1920x1080 --rate 144.00 &
+xrandr --output DP-2 --primary --mode 2560x1440 --rate 165.00 --pos 1920x-360 --output DP-0 --mode 1920x1080 --rate 144.00 --pos 0x0 &
 
 run "nm-applet"
 run "pamac-tray"
-run "variety"
+# run "variety"
 run "xfce4-power-manager"
 run "blueberry-tray"
 run "/usr/lib/xfce4/notifyd/xfce4-notifyd"
@@ -34,9 +34,10 @@ sxhkd -c ~/.config/dwm/dwm/sxhkd/sxhkdrc &
 #run "conky -c $HOME/.config/dwm/dwm/system-overview"
 #you can set wallpapers in themes as well
 #feh --bg-fill /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg &
-feh --bg-fill -z ~/BackGrounds & 
+# feh --bg-fill -z ~/BackGrounds & 
+feh --bg-fill ~/.dotfiles/Wallpapers/wall.jpg & 
 #run applications from startup
-
+run fcitx -d &
 #run "insync start"
 #run "spotify"
 #run "ckb-next -b"
